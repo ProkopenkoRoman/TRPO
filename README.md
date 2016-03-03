@@ -1,2 +1,0 @@
-# TRPO
-TRPO Files
