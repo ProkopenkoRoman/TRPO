@@ -14,7 +14,8 @@ double selectionswitchQuantityOfSubstance(double MEASUREMENT)
            "4 - Киломолей;\n"
            "5 - Мегамолей;\n"
            "6 - Фунт-молей;\n\t");
-    scanf("%d", &key.input_choice);
+    key.input_choice = parsing_id(key.in);
+    //scanf("%d", &key.input_choice);
     while(key.input_choice >= 10 || key.input_choice == 0) {
         fprintf(stderr, "\nВы выбрали величину, которой нет в списке доступных величин. \nПожалуйста, сделайте корректный выбор\n\t");
         scanf("%d", &key.input_choice);
@@ -28,7 +29,8 @@ double selectionswitchQuantityOfSubstance(double MEASUREMENT)
            "4 - Киломолей;\n"
            "5 - Мегамолей;\n"
            "6 - Фунт-молей;\n\t");
-    scanf("%d", &key.output_choice);
+    key.input_choice = parsing_id(key.in);
+    //scanf("%d", &key.output_choice);
     while(key.output_choice == key.input_choice || key.input_choice >= 10 || key.input_choice == 0 )  {
         fprintf(stderr, "\nВы выбрали величину, которой нет в списке доступных величин, \nили Вы пытаетесь конвертировать "
                 "одну и ту же величину. \nПожалуйста, сделайте корректный выбор\n\t");
@@ -39,34 +41,34 @@ double selectionswitchQuantityOfSubstance(double MEASUREMENT)
 
     switch(key.id) {
         case 12:
-            key.gate = MkMole2mMole(MEASUREMENT);
+            key.gate = Mole2mMole(MkMole2Mole(MEASUREMENT));
             break;
         case 13:
             key.gate = MkMole2Mole(MEASUREMENT);
             break;
         case 14:
-            key.gate = MkMole2kMole(MEASUREMENT);
+            key.gate = Mole2kMole(MkMole2Mole(MEASUREMENT));
             break;
         case 15:
-            key.gate = MkMole2MgMole(MEASUREMENT);
+            key.gate = Mole2MgMole(MkMole2Mole(MEASUREMENT));
             break;
         case 16:
-            key.gate = MkMole2PoundMole(MEASUREMENT);
+            key.gate = Mole2PoundMole(MkMole2Mole(MEASUREMENT));
             break;
         case 21:
-            key.gate = mMole2MkMole(MEASUREMENT);
+            key.gate = Mole2MkMole(mMole2Mole(MEASUREMENT));
             break;
         case 23:
             key.gate = mMole2Mole(MEASUREMENT);
             break;
         case 24:
-            key.gate = mMole2kMole(MEASUREMENT);
+            key.gate = Mole2kMole(mMole2Mole(MEASUREMENT));
             break;
         case 25:
-            key.gate = mMole2MgMole(MEASUREMENT);
+            key.gate = Mole2MgMole(mMole2Mole(MEASUREMENT));
             break;
         case 26:
-            key.gate = mMole2PoundMole(MEASUREMENT);
+            key.gate = Mole2PoundMole(mMole2Mole(MEASUREMENT));
             break;
         case 31:
             key.gate = Mole2MkMole(MEASUREMENT);
@@ -84,49 +86,49 @@ double selectionswitchQuantityOfSubstance(double MEASUREMENT)
             key.gate = Mole2PoundMole(MEASUREMENT);
             break;
         case 41:
-            key.gate = kMole2MkMole(MEASUREMENT);
+            key.gate = Mole2MkMole(kMole2Mole(MEASUREMENT));
             break;
         case 42:
-            key.gate = kMole2mMole(MEASUREMENT);
+            key.gate = Mole2mMole(kMole2Mole(MEASUREMENT));
             break;
         case 43:
             key.gate = kMole2Mole(MEASUREMENT);
             break;
         case 45:
-            key.gate = kMole2MgMole(MEASUREMENT);
+            key.gate = Mole2MgMole(kMole2Mole(MEASUREMENT));
             break;
         case 46:
-            key.gate = kMole2PoundMole(MEASUREMENT);
+            key.gate = Mole2PoundMole(kMole2Mole(MEASUREMENT));
             break;
         case 51:
-            key.gate = MgMole2MkMole(MEASUREMENT);
+            key.gate = Mole2MkMole(MgMole2Mole(MEASUREMENT));
             break;
         case 52:
-            key.gate = MgMole2mMole(MEASUREMENT);
+            key.gate = Mole2mMole(MgMole2Mole(MEASUREMENT));
             break;
         case 53:
             key.gate = MgMole2Mole(MEASUREMENT);
             break;
         case 54:
-            key.gate = MgMole2kMole(MEASUREMENT);
+            key.gate = Mole2kMole(MgMole2Mole(MEASUREMENT));
             break;
         case 56:
-            key.gate = MgMole2PoundMole(MEASUREMENT);
+            key.gate = Mole2PoundMole(MgMole2Mole(MEASUREMENT));
             break;
         case 61:
-            key.gate = PoundMole2MkMole(MEASUREMENT);
+            key.gate = Mole2MkMole(PoundMole2Mole(MEASUREMENT));
             break;
         case 62:
-            key.gate = PoundMole2mMole(MEASUREMENT);
+            key.gate = Mole2mMole(PoundMole2Mole(MEASUREMENT));
             break;
         case 63:
             key.gate = PoundMole2Mole(MEASUREMENT);
             break;
         case 64:
-            key.gate = PoundMole2kMole(MEASUREMENT);
+            key.gate = Mole2kMole(PoundMole2Mole(MEASUREMENT));
             break;
         case 65:
-            key.gate = PoundMole2MgMole(MEASUREMENT);
+            key.gate = Mole2MgMole(PoundMole2Mole(MEASUREMENT));
             break;
         default:
             printf("Не введено значение конвертируемой величины, "
