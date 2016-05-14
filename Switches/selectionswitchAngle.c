@@ -15,7 +15,8 @@ double selectionswitchAngle(double MEASUREMENT)
            "5 - Град;\n"
            "6 - Секстант;\n"
            "7 - Румб;\n\t");
-    scanf("%d", &key.input_choice);
+    key.input_choice = parsing_id(key.in);
+    //scanf("%d", &key.input_choice);
     while(key.input_choice >= 10 || key.input_choice == 0) {
         fprintf(stderr, "\nВы выбрали величину, которой нет в списке доступных величин. \nПожалуйста, сделайте корректный выбор\n\t");
         scanf("%d", &key.input_choice);
@@ -30,7 +31,8 @@ double selectionswitchAngle(double MEASUREMENT)
            "5 - Град;\n"
            "6 - Секстант;\n"
            "7 - Румб;\n\t");
-    scanf("%d", &key.output_choice);
+    key.input_choice = parsing_id(key.in);
+    //scanf("%d", &key.output_choice);
     while(key.output_choice == key.input_choice || key.input_choice >= 10 || key.input_choice == 0 )  {
         fprintf(stderr, "\nВы выбрали величину, которой нет в списке доступных величин, \nили Вы пытаетесь конвертировать "
                 "одну и ту же величину. \nПожалуйста, сделайте корректный выбор\n\t");
@@ -41,40 +43,40 @@ double selectionswitchAngle(double MEASUREMENT)
 
     switch(key.id) {
         case 12:
-            key.gate = Sec2Min(MEASUREMENT);
+        	key.gate = Degree2Min(Sec2Degree(MEASUREMENT));
             break;
         case 13:
             key.gate = Sec2Degree(MEASUREMENT);
             break;
         case 14:
-            key.gate = Sec2Radian(MEASUREMENT);
+            key.gate = Degree2Radian(Sec2Degree(MEASUREMENT));
             break;
         case 15:
-            key.gate = Sec2Grad(MEASUREMENT);
+            key.gate = Degree2Grad(Sec2Degree(MEASUREMENT));
             break;
         case 16:
-            key.gate = Sec2Sextant(MEASUREMENT);
+            key.gate = Degree2Sextant(Sec2Degree(MEASUREMENT));
             break;
         case 17:
-            key.gate = Sec2Rumb(MEASUREMENT);
+            key.gate = Degree2Rumb(Sec2Degree(MEASUREMENT));
             break;
         case 21:
-            key.gate = Min2Sec(MEASUREMENT);
+            key.gate = Degree2Sec(Min2Degree(MEASUREMENT));
             break;
         case 23:
             key.gate = Min2Degree(MEASUREMENT);
             break;
         case 24:
-            key.gate = Min2Radian(MEASUREMENT);
+            key.gate = Degree2Radian(Min2Degree(MEASUREMENT));
             break;
         case 25:
-            key.gate = Min2Grad(MEASUREMENT);
+            key.gate = Degree2Grad(Min2Degree(MEASUREMENT));
             break;
         case 26:
-            key.gate = Min2Sextant(MEASUREMENT);
+            key.gate = Degree2Sextant(Min2Degree(MEASUREMENT));
             break;
         case 27:
-            key.gate = Min2Rumb(MEASUREMENT);
+            key.gate = Degree2Rumb(Min2Degree(MEASUREMENT));
             break;
         case 31:
             key.gate = Degree2Sec(MEASUREMENT);
@@ -95,76 +97,76 @@ double selectionswitchAngle(double MEASUREMENT)
             key.gate = Degree2Rumb(MEASUREMENT);
             break;
         case 41:
-            key.gate = Radian2Sec(MEASUREMENT);
+            key.gate = Degree2Sec(Radian2Degree(MEASUREMENT));
             break;
         case 42:
-            key.gate = Radian2Min(MEASUREMENT);
+            key.gate = Degree2Min(Radian2Degree(MEASUREMENT));
             break;
         case 43:
             key.gate = Radian2Degree(MEASUREMENT);
             break;
         case 45:
-            key.gate = Radian2Grad(MEASUREMENT);
+            key.gate = Degree2Grad(Radian2Degree(MEASUREMENT));
             break;
         case 46:
-            key.gate = Radian2Sextant(MEASUREMENT);
+            key.gate = Degree2Sextant(Radian2Degree(MEASUREMENT));
             break;
         case 47:
-            key.gate = Radian2Rumb(MEASUREMENT);
+            key.gate = Degree2Rumb(Radian2Degree(MEASUREMENT));
             break;
         case 51:
-            key.gate = Grad2Sec(MEASUREMENT);
+            key.gate = Degree2Sec(Grad2Degree(MEASUREMENT));
             break;
         case 52:
-            key.gate = Grad2Min(MEASUREMENT);
+            key.gate = Degree2Min(Grad2Degree(MEASUREMENT));
             break;
         case 53:
             key.gate = Grad2Degree(MEASUREMENT);
             break;
         case 54:
-            key.gate = Grad2Radian(MEASUREMENT);
+            key.gate = Degree2Radian(Grad2Degree(MEASUREMENT));
             break;
         case 56:
-            key.gate = Grad2Sextant(MEASUREMENT);
+            key.gate = Degree2Sextant(Grad2Degree(MEASUREMENT));
             break;
         case 57:
-            key.gate = Grad2Rumb(MEASUREMENT);
+            key.gate = Degree2Rumb(Grad2Degree(MEASUREMENT));
             break;
         case 61:
-            key.gate = Sextant2Sec(MEASUREMENT);
+            key.gate = Degree2Sec(Sextant2Degree(MEASUREMENT));
             break;
         case 62:
-            key.gate = Sextant2Min(MEASUREMENT);
+            key.gate = Degree2Min(Sextant2Degree(MEASUREMENT));
             break;
         case 63:
             key.gate = Sextant2Degree(MEASUREMENT);
             break;
         case 64:
-            key.gate = Sextant2Radian(MEASUREMENT);
+            key.gate = Degree2Radian(Sextant2Degree(MEASUREMENT));
             break;
         case 65:
-            key.gate = Sextant2Grad(MEASUREMENT);
+            key.gate = Degree2Grad(Sextant2Degree(MEASUREMENT));
             break;
         case 67:
-            key.gate = Sextant2Rumb(MEASUREMENT);
+            key.gate = Degree2Rumb(Sextant2Degree(MEASUREMENT));
             break;
         case 71:
-            key.gate = Rumb2Sec(MEASUREMENT);
+            key.gate = Degree2Sec(Rumb2Degree(MEASUREMENT));
             break;
         case 72:
-            key.gate = Rumb2Min(MEASUREMENT);
+            key.gate = Degree2Min(Rumb2Degree(MEASUREMENT));
             break;
         case 73:
             key.gate = Rumb2Degree(MEASUREMENT);
             break;
         case 74:
-            key.gate = Rumb2Radian(MEASUREMENT);
+            key.gate = Degree2Radian(Rumb2Degree(MEASUREMENT));
             break;
         case 75:
-            key.gate = Rumb2Grad(MEASUREMENT);
+            key.gate = Degree2Grad(Rumb2Degree(MEASUREMENT));
             break;
         case 76:
-            key.gate = Rumb2Sextant(MEASUREMENT);
+            key.gate = Degree2Sextant(Rumb2Degree(MEASUREMENT));
             break;
         default:
             printf("Не введено значение конвертируемой величины, "
